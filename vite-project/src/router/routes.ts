@@ -16,12 +16,12 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
-    path: '/Error',
-    component: () => import("@/components/ErrorPage.vue"),
-    name: 'ErrorPage',
-    meta: { title: '權限不足' },
+    path: "/Error",
+    component: () => import("@/views/ErrorPage.vue"),
+    name: "ErrorPage",
+    meta: { title: "權限不足" },
   },
-  { path: '/:notFound(.*)', redirect: '/' },
+  { path: "/:notFound(.*)", redirect: "/" },
 ];
 
 export default routes;

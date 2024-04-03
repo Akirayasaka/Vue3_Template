@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import Header from './Header.vue';
-import SideMenu from './SideMenu.vue';
+import Header from "./Header.vue";
+import SideMenu from "./SideMenu.vue";
 </script>
 
 <style scoped></style>
