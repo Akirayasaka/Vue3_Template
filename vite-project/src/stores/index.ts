@@ -1,3 +1,7 @@
-import webSocketStore from "./websocket/websocket";
+import useLayoutStore from "./layout/layout";
+import useWebSocketStore from "./websocket/websocket";
 
-export const store = {webSocketStore};
+export const store = {
+  layoutStore: useLayoutStore,
+  webSocketStore: useWebSocketStore,
+};

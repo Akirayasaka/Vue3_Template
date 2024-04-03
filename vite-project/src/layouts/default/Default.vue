@@ -2,11 +2,7 @@
   <v-layout class="rounded rounded-md">
     <Header></Header>
     <SideMenu></SideMenu>
-
-    <v-main
-      class="d-flex align-center justify-center"
-      style="min-height: 300px"
-    >
+    <v-main style="height: 500px">
       <RouterView />
     </v-main>
   </v-layout>
