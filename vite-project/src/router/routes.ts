@@ -16,6 +16,12 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
+    path: "/Login",
+    component: () => import("@/views/LoginPage.vue"),
+    name: "LoginPage",
+    meta: { title: "登入" },
+  },
+  {
     path: "/Error",
     component: () => import("@/views/ErrorPage.vue"),
     name: "ErrorPage",
