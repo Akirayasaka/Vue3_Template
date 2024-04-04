@@ -15,13 +15,13 @@ axiosInstance.interceptors.request.use(
     //config.withCredentials = true;
 
     // 從 localStorage 將 token 取出
-    const userData = JSON.parse(localStorage.getItem("user")!);
+    // const userData = JSON.parse(localStorage.getItem("user")!);
 
     // 如果 token 存在的話，則帶入到 headers 當中
-    if (userData) {
-      const token = userData.userToken;
-      config.headers.Authorization = `bearer ${token}`;
-    }
+    // if (userData) {
+    //   const token = userData.userToken;
+    //   config.headers.Authorization = `bearer ${token}`;
+    // }
 
     const apiURL = `${config.url}`;
     console.log(apiURL);
