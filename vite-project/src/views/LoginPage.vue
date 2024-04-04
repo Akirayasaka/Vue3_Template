@@ -87,7 +87,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import { useForm, useField } from "vee-validate";
 
 const { handleSubmit } = useForm({
@@ -116,7 +115,7 @@ const password = useField("password");
 
 const visible = ref(false);
 
-const onSubmit = handleSubmit((values: { email: string; password: string }) => {
+const onSubmit = handleSubmit((values: object) => {
   console.log(values);
 });
 </script>
