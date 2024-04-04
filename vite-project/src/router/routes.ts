@@ -3,7 +3,7 @@ import type { RouteRecordRaw } from "vue-router";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    component: () => import("@/layouts/default/Default.vue"),
+    component: () => import("@/layouts/default/DefaultLayout.vue"),
     name: "Home",
     meta: { title: "首頁" },
     children: [

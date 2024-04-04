@@ -13,9 +13,13 @@ export const useUserStore = defineStore(
 
     const user = ref(init_userData());
 
+    const reset_UserStore = (): void => {
+      user.value = init_userData();
+    };
+
     return {
       user,
-      init_userData,
+      reset_UserStore,
     };
   },
   { persist: { key: "user", storage: localStorage } },
