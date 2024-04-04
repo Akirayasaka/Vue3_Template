@@ -88,8 +88,15 @@
 import { ref } from "vue";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import { useForm, useField } from "vee-validate";
+import { store } from "@/stores";
+import router from "@/router";
 
-const { handleSubmit } = useForm({
+interface MyForm {
+  email: string;
+  password: string;
+}
+
+const { handleSubmit } = useForm<MyForm>({
   validationSchema: {
     email(value: string) {
       if (/^[a-z.-]+@[a-z.-]+\.[a-z]+$/i.test(value)) {
@@ -115,8 +122,12 @@ const password = useField("password");
 
 const visible = ref(false);
 
-const onSubmit = handleSubmit((values: object) => {
+const onSubmit = handleSubmit((values: MyForm) => {
   console.log(values);
+  if (values.email)
+  store.userStore().user.email = values.email;
+  store.userStore().user.password = values.password;
+  router.push("/");
 });
 </script>
 

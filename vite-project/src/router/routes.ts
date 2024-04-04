@@ -16,13 +16,13 @@ const routes: Array<RouteRecordRaw> = [
     ],
   },
   {
-    path: "/Login",
+    path: "/login",
     component: () => import("@/views/LoginPage.vue"),
     name: "LoginPage",
     meta: { title: "登入" },
   },
   {
-    path: "/Error",
+    path: "/error",
     component: () => import("@/views/ErrorPage.vue"),
     name: "ErrorPage",
     meta: { title: "權限不足" },
