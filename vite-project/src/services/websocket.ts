@@ -13,6 +13,7 @@ export const connectSocket = () => {
   };
 
   //監聽訊息(onmessage)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   socket.onmessage = function (msg: any) {
     websocketStore.fetch(JSON.parse(msg ?? {}));
   };
@@ -23,6 +24,7 @@ export const connectSocket = () => {
   };
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const sendSocketMessage = (msg: any) => {
   if (socket.readyState === 1) {
     socket.send(JSON.stringify(msg));
