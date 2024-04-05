@@ -1,14 +1,16 @@
 import axios from "axios";
 import type { AxiosError, InternalAxiosRequestConfig } from "axios";
 
-// const baseURL = import.meta.env.VITE_BaseUrl;
-const baseURL = "./";
+/** 基底網址路徑，可根據環境設定不同.env檔案 */
+const baseURL = import.meta.env.VITE_BaseUrl;
 
+/** 建立自定義axios實體 */
 const axiosInstance = axios.create({
   baseURL,
   headers: { "Content-Type": "application/json", Accept: "application/json" },
 });
 
+//#region request動作時，預設行為
 axiosInstance.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     // 在跨域請求時才會正常發出附帶 Cookie 的 header, 伺服器回應時也要一並帶上 Access-Control-Allow-Credentials: true
@@ -30,7 +32,9 @@ axiosInstance.interceptors.request.use(
   },
   (err) => Promise.reject(err)
 );
+//#endregion
 
+//#region response動作時，預設行為
 axiosInstance.interceptors.response.use(
   (response) => {
     return response;
@@ -39,5 +43,6 @@ axiosInstance.interceptors.response.use(
     console.log(error);
   }
 );
+//#endregion
 
 export const axiosHelper = axiosInstance;

@@ -7,7 +7,7 @@ const router = createRouter({
   routes,
 });
 
-/** 監聽頁面轉跳行為(Router Guard) */
+//#region 監聽頁面轉跳行為(Router Guard)
 router.beforeEach(async (to, from) => {
   console.log("to", to);
   console.log("from", from);
@@ -31,5 +31,6 @@ router.beforeEach(async (to, from) => {
     }
   }
 });
+//#endregion
 
 export default router;

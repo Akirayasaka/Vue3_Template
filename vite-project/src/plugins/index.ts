@@ -7,6 +7,7 @@ import router from "@/router";
 import vuetify from "./vuetify";
 import "../style.css";
 
+/** 註冊套件功能至全域 */
 export const registerPlugins = (app: App<Element>) => {
   app
     .use(createPinia().use(piniaPluginPersistedstate))
