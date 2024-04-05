@@ -4,7 +4,7 @@
       class="mx-auto my-6"
       max-width="228"
       src="https://cdn.vuetifyjs.com/docs/images/logos/vuetify-logo-v3-slim-text-light.svg"
-    ></v-img>
+    />
 
     <v-card
       class="mx-auto pa-12 pb-8"
@@ -21,21 +21,20 @@
         placeholder="Email address"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
-      ></v-text-field>
+      />
 
       <div
         class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between"
       >
         Password
-
         <a
           class="text-caption text-decoration-none text-blue"
           href="#"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Forgot login password?</a
-        >
+          Forgot login password?
+        </a>
       </div>
 
       <v-text-field
@@ -49,7 +48,7 @@
         prepend-inner-icon="mdi-lock-outline"
         variant="outlined"
         @click:append-inner="visible = !visible"
-      ></v-text-field>
+      />
 
       <v-card class="mb-12" color="surface-variant" variant="tonal">
         <v-card-text class="text-medium-emphasis text-caption">
@@ -77,7 +76,7 @@
           rel="noopener noreferrer"
           target="_blank"
         >
-          Sign up now <v-icon icon="mdi-chevron-right"></v-icon>
+          Sign up now <v-icon icon="mdi-chevron-right" />
         </a>
       </v-card-text>
     </v-card>
@@ -96,6 +95,7 @@ interface MyForm {
   password: string;
 }
 
+//#region form: vee-validation
 const { handleSubmit } = useForm<MyForm>({
   validationSchema: {
     email(value: string) {
@@ -117,15 +117,16 @@ const { handleSubmit } = useForm<MyForm>({
     },
   },
 });
+
 const email = useField("email");
 const password = useField("password");
+//#endregion
 
 const visible = ref(false);
 
 const onSubmit = handleSubmit((values: MyForm) => {
-  console.log(values);
-  if (values.email)
-  store.userStore().user.email = values.email;
+  console.log("formData:", values);
+  if (values.email) store.userStore().user.email = values.email;
   store.userStore().user.password = values.password;
   router.push("/");
 });
