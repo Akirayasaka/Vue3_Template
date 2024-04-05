@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="onSubmit">
+  <form>
     <v-img
       class="mx-auto my-6"
       max-width="228"
@@ -64,7 +64,8 @@
         size="large"
         variant="tonal"
         block
-        type="submit"
+        type="button"
+        @click="onSubmit"
       >
         Log In
       </v-btn>
