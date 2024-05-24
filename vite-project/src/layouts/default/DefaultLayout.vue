@@ -2,7 +2,7 @@
   <v-layout class="rounded rounded-md">
     <Header></Header>
     <SideMenu></SideMenu>
-    <v-main style="height: 500px">
+    <v-main class="w-100" style="min-height: 600px;">
       <RouterView />
     </v-main>
   </v-layout>

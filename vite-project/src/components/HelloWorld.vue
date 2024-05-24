@@ -1,5 +1,21 @@
 <template>
-   <div>
+  <v-carousel>
+    <v-carousel-item
+      src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+      cover
+    ></v-carousel-item>
+
+    <v-carousel-item
+      src="https://cdn.vuetifyjs.com/images/cards/hotel.jpg"
+      cover
+    ></v-carousel-item>
+
+    <v-carousel-item
+      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      cover
+    ></v-carousel-item>
+  </v-carousel>
+  <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
@@ -7,7 +23,6 @@
       <img src="../assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <!-- <h1>{{ msg }}</h1> -->
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
@@ -38,8 +53,6 @@ import { apiService } from "@/services/api";
 import { utils } from "@/utils";
 import { ref } from "vue";
 
-// defineProps<{ msg: string }>();
-
 const count = ref(0);
 
 /** 測試範例API */
@@ -48,7 +61,7 @@ const test = async (): Promise<void> => {
   if (utils.Generic.checkApiResponse(apiResult)) {
     console.log(apiResult);
   }
-}
+};
 </script>
 
 <style scoped>
