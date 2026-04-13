@@ -59,3 +59,8 @@ export const XXX = ...
 // 簡單 helper 可用 const
 export const isEmpty = () => ...
 
+## Version Control
+
+為了維持程式穩定性，禁止任意私自安裝第三方套件或套件升級
+務必和團隊協調後才做異動，確保所有開發人員使用的版本一致
+
