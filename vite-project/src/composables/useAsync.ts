@@ -13,7 +13,7 @@ interface UseAsyncReturn<T> {
  * 封裝非同步請求與狀態管理的 Composable(範例用, 實際可用VueUse提供的 useAsyncState更簡便)
  * @param asyncFunction 傳入一個回傳 Promise 的 API 請求函式
  */
-export const useAsync = <T>(asyncFunction: (...args: any[]) => Promise<T>): UseAsyncReturn<T> => {
+export function useAsync<T>(asyncFunction: (...args: any[]) => Promise<T>): UseAsyncReturn<T> {
     // 1. 定義狀態：資料、載入中、錯誤
     const data = ref<T | null>(null) as Ref<T | null>;
     const isLoading = ref<boolean>(false);

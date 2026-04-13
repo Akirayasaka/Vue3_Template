@@ -10,7 +10,7 @@ This template should help get you started developing with Vue 3 and TypeScript i
 
 ## Folder Structure
 
-|-node_modules       -- 套件安裝目錄
+|-node_modules       -- 套件安裝目錄(若要將程式包版壓縮寄出,請略過此目錄)
 |-public             -- 公用資料夾
 ---|favicon.ico      -- 網站圖示
 |-src                -- 底層文件目錄，撰寫的程式碼基本都在此根目錄下
@@ -36,3 +36,26 @@ This template should help get you started developing with Vue 3 and TypeScript i
 |-README.md          -- 項目的說明文件，使用markdown語法進行編寫
 |-tsconfig.json      -- TypeScript設定檔案
 |-vite.config.ts     -- Vite相關設定
+
+## Naming Rule
+
+| 情境                        | 建議使用          |
+| -------------------------- | ----------------- |
+| 工具函式（utils）           | `export function` |
+| Vue composables            | `export function` |
+| 需要 this 控制              | `export function` |
+| 保持一致 functional 寫法    | `export const`    |
+| callback / inline function | `export const`    |
+
+// composables 一律用 function
+export function useXXX()
+
+// utils 可用 function
+export function formatXXX()
+
+// 常數一律用 const
+export const XXX = ...
+
+// 簡單 helper 可用 const
+export const isEmpty = () => ...
+
