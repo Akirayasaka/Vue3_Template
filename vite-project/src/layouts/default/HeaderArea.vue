@@ -45,7 +45,9 @@ const dialog = ref(false);
 const theme = useTheme();
 
 const toggleTheme = (): void => {
-  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+  // deprecated
+  // theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+  theme.change(theme.global.current.value.dark ? "light" : "dark");
 };
 
 const logout = (): void => {
