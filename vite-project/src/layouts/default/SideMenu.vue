@@ -21,6 +21,8 @@
         prepend-icon="mdi-home-city"
         title="Home"
         value="home"
+        :to="{ name: 'Home'}"
+        exact
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-account"

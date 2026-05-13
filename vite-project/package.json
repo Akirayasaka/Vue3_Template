@@ -16,23 +16,23 @@
     "pinia-plugin-persistedstate": "^4.7.1",
     "socket.io-client": "^4.8.3",
     "vee-validate": "^4.15.1",
-    "vue": "^3.5.32",
+    "vue": "^3.5.34",
     "vue-axios": "^3.5.2",
     "vue-router": "^5.0.6",
-    "vuetify": "^4.0.6"
+    "vuetify": "^4.0.7"
   },
   "devDependencies": {
     "@mdi/font": "^7.4.47",
-    "@types/node": "^25.6.0",
-    "@typescript-eslint/eslint-plugin": "^8.58.2",
-    "@typescript-eslint/parser": "^8.58.2",
+    "@types/node": "^25.7.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.3",
+    "@typescript-eslint/parser": "^8.59.3",
     "@vitejs/plugin-vue": "^6.0.6",
     "@vue/eslint-config-typescript": "^14.7.0",
     "eslint": "^10.3.0",
-    "eslint-plugin-vue": "^10.8.0",
+    "eslint-plugin-vue": "^10.9.1",
     "prettier": "^3.8.3",
-    "typescript": "^6.0.2",
-    "vite": "^8.0.8",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.12",
     "vite-plugin-eslint": "^1.8.1",
     "vue-tsc": "^3.2.8"
   }
