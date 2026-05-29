@@ -15,6 +15,6 @@ export default createVuetify({
     defaultSet: "mdi",
   },
   theme: {
-    defaultTheme: "dark",
+    defaultTheme: "light",
   },
 });

@@ -2,17 +2,23 @@ import axios from "axios";
 import type { AxiosError, InternalAxiosRequestConfig } from "axios";
 
 /** 基底網址路徑，可根據環境設定不同.env檔案 */
-const baseURL = import.meta.env.VITE_BaseUrl;
+// const baseURL = import.meta.env.VITE_BaseUrl;
 
 /** 建立自定義axios實體 */
 const axiosInstance = axios.create({
-  baseURL,
+  // baseURL,
   headers: { "Content-Type": "application/json", Accept: "application/json" },
 });
 
 //#region request動作時，預設行為
 axiosInstance.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
+    // 在每次請求發出前，動態注入 Runtime 載入的 baseURL 與 timeout
+    if (window.__APP_CONFIG__) {
+      config.baseURL = window.__APP_CONFIG__.API_BASE_URL;
+      config.timeout = window.__APP_CONFIG__.APP_TIMEOUT;
+    }
+
     // 在跨域請求時才會正常發出附帶 Cookie 的 header, 伺服器回應時也要一並帶上 Access-Control-Allow-Credentials: true
     //config.withCredentials = true;
 
@@ -23,14 +29,14 @@ axiosInstance.interceptors.request.use(
     // if (userData) {
     //   const token = userData.userToken;
     //   config.headers.Authorization = `bearer ${token}`;
-    // }
-
+    // } 
+    console.log(config);
     const apiURL = `${config.url}`;
-    console.log(apiURL);
+    console.log('API Request URL:', apiURL);
 
     return config;
   },
-  (err) => Promise.reject(err)
+  (err) => Promise.reject(err),
 );
 //#endregion
 
@@ -40,8 +46,9 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   async (error: AxiosError) => {
-    console.log(error);
-  }
+    console.log('API Error:', error);
+    return Promise.reject(error);
+  },
 );
 //#endregion
 

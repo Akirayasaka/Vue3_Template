@@ -12,6 +12,7 @@ This template should help get you started developing with Vue 3 and TypeScript i
 
 |-node_modules       -- 套件安裝目錄(若要將程式包版壓縮寄出,請略過此目錄)
 |-public             -- 公用資料夾
+---|config.json      -- Runtime環境變數設定檔案，減少因為改換環境而需要重新打包的時間
 ---|favicon.ico      -- 網站圖示
 |-src                -- 底層文件目錄，撰寫的程式碼基本都在此根目錄下
 ---|assets           -- 放置靜態檔案的目錄，比如logo.svg就放在這裡
