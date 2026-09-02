@@ -30,7 +30,7 @@ This template should help get you started developing with Vue 3 and TypeScript i
 ---|main.ts          -- 入口文件，所有會使用到的元件於此註冊。因為採用了TypeScript所以是ts结尾
 |-.env.development   -- 環境變數檔案(For Dev)
 |-.env.production    -- 環境變數檔案(For Prod)
-|-.eslintrc.cjs      -- eslint相關設定
+|-eslint.config.ts   -- eslint相關設定 (flat config)
 |-.gitignore         -- 設定哪些檔案不需要被git管理
 |-index.html         -- 入口的html檔案
 |-package.json       -- 指令配置和套件管理檔案

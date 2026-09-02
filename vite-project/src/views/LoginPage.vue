@@ -86,7 +86,6 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import { useForm, useField } from "vee-validate";
 import { store } from "@/stores";
 import router from "@/router";

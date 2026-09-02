@@ -1,26 +1,28 @@
 import { ref, type Ref } from 'vue';
 
 // 定義回傳值的型別介面
-interface UseAsyncReturn<T> {
+interface UseAsyncReturn<T, TArgs extends unknown[]> {
   data: Ref<T | null>;
   isLoading: Ref<boolean>;
   error: Ref<Error | null>;
-  // execute 是一個用來觸發 API 呼叫的函式
-  execute: (...args: any[]) => Promise<void>; 
+  // execute 是一個用來觸發 API 呼叫的函式，參數型別沿用傳入的 asyncFunction
+  execute: (...args: TArgs) => Promise<void>;
 }
 
 /**
  * 封裝非同步請求與狀態管理的 Composable(範例用, 實際可用VueUse提供的 useAsyncState更簡便)
  * @param asyncFunction 傳入一個回傳 Promise 的 API 請求函式
  */
-export function useAsync<T>(asyncFunction: (...args: any[]) => Promise<T>): UseAsyncReturn<T> {
+export function useAsync<T, TArgs extends unknown[]>(
+  asyncFunction: (...args: TArgs) => Promise<T>
+): UseAsyncReturn<T, TArgs> {
     // 1. 定義狀態：資料、載入中、錯誤
     const data = ref<T | null>(null) as Ref<T | null>;
     const isLoading = ref<boolean>(false);
     const error = ref<Error | null>(null);
 
     // 2. 定義執行函式
-    const execute = async (...args: any[]) => {
+    const execute = async (...args: TArgs) => {
         isLoading.value = true;
         error.value = null; // 每次執行前清空錯誤狀態
 

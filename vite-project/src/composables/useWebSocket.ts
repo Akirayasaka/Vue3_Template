@@ -3,7 +3,7 @@ import { ref, onScopeDispose, getCurrentScope } from "vue";
 
 interface UseWebSocketOptions {
   url: string;
-  onMessage?: (data: any) => void;
+  onMessage?: (data: unknown) => void;
   onOpen?: () => void;
   onClose?: () => void;
   onError?: (error: Event) => void;
@@ -96,7 +96,7 @@ export function useWebSocket(options: UseWebSocketOptions) {
     }
   }
 
-  function send(data: any) {
+  function send(data: unknown) {
     if (ws && isConnected.value) {
       // 確保發送字串
       const message = typeof data === 'string' ? data : JSON.stringify(data);
